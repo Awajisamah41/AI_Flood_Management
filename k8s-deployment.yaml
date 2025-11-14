@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flood-backend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flood-backend
+  template:
+    metadata:
+      labels:
+        app: flood-backend
+    spec:
+      containers:
+        - name: backend
+          image: registry.example.com/flood-backend:latest
+          ports:
+            - containerPort: 8000
